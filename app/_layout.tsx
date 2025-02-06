@@ -1,39 +1,55 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+import { Tabs } from "expo-router";
+import { HouseLine, MagnifyingGlass, Notebook, UserSquare } from "phosphor-react-native";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+  return <Tabs 
+    screenOptions={{
+      headerShown: false, 
+      tabBarStyle: {
+        backgroundColor: "#181a20",
+        borderTopWidth: 0,
+        paddingBottom: 0,
+      },
+      tabBarShowLabel: true,
+      tabBarActiveTintColor: "#1ab65c",
+      tabBarInactiveTintColor: "#fff",
+    }}
+  >
+    <Tabs.Screen name="index" options={{
+      title: "Home",
+      tabBarIcon: ({ focused }) => {
+        if (focused) {
+          return <HouseLine size={24} color="#1ab65c" />
+        }
+        return <HouseLine size={24} color="#fff" />
+      }
+    }} />
+    <Tabs.Screen name="TabBooking" options={{
+      title: "Booking",
+      tabBarIcon: ({ focused }) => {
+        if (focused) {
+          return <Notebook size={24} color="#1ab65c" />
+        }
+        return <Notebook size={24} color="#fff" />
+      }
+    }} />
+    <Tabs.Screen name="TabProfile" options={{
+      title: "Profile",
+      tabBarIcon: ({ focused }) => {
+        if (focused) {
+          return <UserSquare size={24} color="#1ab65c" />
+        }
+        return <UserSquare size={24} color="#fff" />
+      }
+    }} />
+    <Tabs.Screen name="TabSearch" options={{
+      title: "Search",
+      tabBarIcon: ({ focused }) => {
+        if (focused) {
+          return <MagnifyingGlass size={24} color="#1ab65c" />
+        }
+        return <MagnifyingGlass size={24} color="#fff" />
+      }
+    }} />
+  </Tabs>;
 }
