@@ -1,8 +1,19 @@
-import { BookBookmark, Star, StarFour, StarHalf } from 'phosphor-react-native'
+import { useRouter } from 'expo-router'
+import { BookBookmark, Bookmark, Star, StarFour, StarHalf } from 'phosphor-react-native'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 const Card = () => {
+
+  const router = useRouter()
+
+  const handleDetails = () => {
+    console.log('Olá, Dauran! - Detalhes da casa realizado com sucesso!')
+    // router.navigate('/tabs/Details')
+  }
+
+
   return (
-    <TouchableOpacity style={styles.card}>
+
+    <TouchableOpacity style={styles.card} onPress={handleDetails}>
       <View style={styles.cardContent}>
       <Image source={require("../assets/1image.png")} style={styles.recommendationsImage} />
       </View>
@@ -14,11 +25,12 @@ const Card = () => {
         <Text style={styles.cartdCity}>(4.8 Reviews)</Text>
       </View>
       <View style={styles.cardContent_value}>
-        <Text style={styles.cardPrice}>R$ 150</Text>
-        <Text style={styles.cardPrice_night}>/ noite</Text>
-        <BookBookmark size={24} color="#1ab65c" />
+        <Text style={styles.cardPrice}>R$ 450</Text>
+        <Text style={styles.cardPrice_night}>/ mês</Text>
+        <Bookmark size={24} color="#1ab65c" weight='fill' />
       </View>
     </TouchableOpacity>
+
 
 
   )
