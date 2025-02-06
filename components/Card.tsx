@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router'
-import { BookBookmark, Bookmark, Star, StarFour, StarHalf } from 'phosphor-react-native'
+import { Bookmark, Star  } from 'phosphor-react-native'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 const Card = () => {
 
@@ -7,8 +7,10 @@ const Card = () => {
 
   const handleDetails = () => {
     console.log('Olá, Dauran! - Detalhes da casa realizado com sucesso!')
-    // router.navigate('/tabs/Details')
+    router.navigate('/stacks/Details') 
   }
+
+
 
 
   return (
@@ -18,7 +20,8 @@ const Card = () => {
       <Image source={require("../assets/1image.png")} style={styles.recommendationsImage} />
       </View>
       <View style={styles.cardContent}>
-        <Text style={styles.cardTitle}>Casa de campo</Text>
+        <Text style={styles.cardTitle}>Royale President Donald Trump 5 stars Hotel</Text>
+
 
         <Text style={styles.cardAddress}>Rua das Flores, 123</Text>
         <Star size={16} color="#f6fe00" />
@@ -47,22 +50,19 @@ const styles = StyleSheet.create({
 
   card: {
     flexDirection: "row",
-    textAlign: "center",
-    justifyContent: "space-between",
     alignItems: "center",
-    width: "100%",
-    height: 140,
+    height: 150,
     borderRadius: 10,
+    gap: 10,
     backgroundColor: "#25272e",
   },
   cardContent: {
-    paddingHorizontal:10,
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
   },
+
   cardTitle: {
-    fontSize: 21,
+    width: 175,
+    fontSize: 17,
     fontWeight: "bold",
     color: "#fff",
   },
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
 
 
   cardAddress: {
-    fontSize: 14,
-    paddingVertical: 15,
+    fontSize: 15,
+    paddingVertical: 10,
     color: "#fff",
 
   },

@@ -19,18 +19,14 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-
       <StatusBar barStyle="dark-content" />
-      <Link href="/auth/Login" asChild>
+      <Link href="/stacks/Login" asChild>
         <TouchableOpacity style={styles.arrowLeft}>
           <ArrowLeft size={24} color="#fff" />
-
         </TouchableOpacity>
       </Link>
-
       <View style={styles.content}>
         <Text style={styles.title}>Faça Login na {'\n'}Conta</Text>
-
         <View style={styles.form}>
           <View style={styles.inputContainer}>
             <EnvelopeSimple size={24} color="#757575" />
@@ -44,7 +40,6 @@ export default function Login() {
               keyboardType="email-address"
             />
           </View>
-
           <View style={styles.inputContainer}>
             <LockKey size={24} color="#757575" />
             <TextInput
@@ -56,7 +51,6 @@ export default function Login() {
               secureTextEntry
             />
           </View>
-
           <TouchableOpacity 
             style={styles.rememberContainer}
             onPress={() => setRememberMe(!rememberMe)}
@@ -64,17 +58,21 @@ export default function Login() {
             <View style={[styles.checkbox, rememberMe && styles.checkboxChecked]} />
             <Text style={styles.rememberText}>Remember me</Text>
           </TouchableOpacity>
-
+          <View style={styles.forgotPasswordContainer}>
+            <Link href="/stacks/Signup" asChild>
+              <TouchableOpacity>
+                <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
+              </TouchableOpacity>
+            </Link>
+          </View>
           <TouchableOpacity style={styles.signupButton} onPress={handleLogin}>
             <Text style={styles.signupButtonText}>Faça Login</Text>
           </TouchableOpacity>
-
           <View style={styles.footer}>
             <Text style={styles.footerText}>Não tem uma conta?</Text>
-            <Link href="/auth/Signup" asChild>
+            <Link href="/stacks/Signup" asChild>
               <TouchableOpacity>
                 <Text style={styles.signInText}>Crie sua conta</Text>
-
               </TouchableOpacity>
             </Link>
           </View>
@@ -193,4 +191,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
   },
+  forgotPassword: {
+    color: '#1ab65c',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  forgotPasswordContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    justifyContent: 'center',
+  },
+
 })

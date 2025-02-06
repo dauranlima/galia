@@ -1,6 +1,6 @@
 import { AppleLogo, ArrowLeft, EnvelopeSimple, FacebookLogo, GithubLogo, GoogleLogo, LockKey } from 'phosphor-react-native'
 import { useState } from 'react'
-import { StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native'
 import { Link } from 'expo-router'
 
 export default function Signup() {
@@ -10,19 +10,17 @@ export default function Signup() {
   const [rememberMe, setRememberMe] = useState(false)
 
 
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      <Link href="/auth/Login" asChild>
+      <Link href="/stacks/Login" asChild>
         <TouchableOpacity style={styles.arrowLeft}>
           <ArrowLeft size={24} color="#fff" />
-
         </TouchableOpacity>
       </Link>
-
       <View style={styles.content}>
         <Text style={styles.title}>Crie sua agora{'\n'}Conta</Text>
-
         <View style={styles.form}>
           <View style={styles.inputContainer}>
             <EnvelopeSimple size={24} color="#757575" />
@@ -36,7 +34,6 @@ export default function Signup() {
               keyboardType="email-address"
             />
           </View>
-
           <View style={styles.inputContainer}>
             <LockKey size={24} color="#757575" />
             <TextInput
@@ -48,7 +45,6 @@ export default function Signup() {
               secureTextEntry
             />
           </View>
-
           <View style={styles.inputContainer}>
             <LockKey size={24} color="#757575" />
             <TextInput
@@ -60,7 +56,6 @@ export default function Signup() {
               secureTextEntry
             />
           </View>
-
           <TouchableOpacity 
             style={styles.rememberContainer}
             onPress={() => setRememberMe(!rememberMe)}
@@ -68,41 +63,34 @@ export default function Signup() {
             <View style={[styles.checkbox, rememberMe && styles.checkboxChecked]} />
             <Text style={styles.rememberText}>Remember me</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.signupButton}>
             <Text style={styles.signupButtonText}>Crie sua conta</Text>
           </TouchableOpacity>
-
           <View style={styles.separator}>
             <View style={styles.separatorLine} />
             <Text style={styles.orText}>OU CONTINUE COM</Text>
             <View style={styles.separatorLine} />
           </View>
-
-
           <View style={styles.socialButtons}>
             <TouchableOpacity style={styles.socialButton}>
-              <Text style={styles.socialButtonText}>
-                <FacebookLogo size={34} color="#1877f2" weight='fill' />
-              </Text>
+              <FacebookLogo size={34} color="#1877f2" weight='fill' />
             </TouchableOpacity>
             <TouchableOpacity style={styles.socialButton}>
-              <Text style={styles.socialButtonText}>
-                <GithubLogo size={24} color="#fff" weight='fill' />
-              </Text>
+              <GithubLogo size={24} color="#fff" weight='fill' />
             </TouchableOpacity>
             <TouchableOpacity style={styles.socialButton}>
-
-              <Text style={styles.socialButtonText}> 
-                <AppleLogo size={24} color="#fff" weight='fill' />
-              </Text>
+              <AppleLogo size={24} color="#fff" weight='fill' />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.socialButton}>
+              <Image 
+                source={require('../../assets/google.png')} 
+                style={{ width: 24, height: 24 }} 
+              />
             </TouchableOpacity>
           </View>
-
-
           <View style={styles.footer}>
             <Text style={styles.footerText}>Já tem uma conta? </Text>
-            <Link href="/auth/Login" asChild>
+            <Link href="/stacks/Login" asChild>
               <TouchableOpacity>
                 <Text style={styles.signInText}>Faça Login</Text>
               </TouchableOpacity>

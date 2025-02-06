@@ -1,9 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'expo-router'
-import Signup from './stacks/Signup'
-export default function index() {
 
-
+export default function Index() {
   const router = useRouter();
   
   useEffect(() => {
@@ -11,19 +9,14 @@ export default function index() {
       const isLoggedIn = false;
 
       if (isLoggedIn) {
-        router.navigate('/tabs/Home')
+        router.replace('/tabs/Home')
       } else {
-        return <Signup />
+        router.replace('/stacks/Signup')
       }
-
-
     }, 1500)
+    
     return () => clearTimeout(timeout);
   }, [])
-  return (
-      <Signup />
-  )
 
-
-
+  return null;
 }
