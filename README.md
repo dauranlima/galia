@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="./assets/logo.png" alt="Galia Logo" width="120"/>
-  ![begin_app_galia](https://github.com/user-attachments/assets/813b73bc-95ab-4d59-90f9-6b38c2e8e855)
+  
 
 </div>
 
