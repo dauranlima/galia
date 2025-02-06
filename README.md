@@ -1,50 +1,132 @@
-# Welcome to your Expo app 👋
+# Galia - Mobile App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+<div align="center">
+  <img src="./assets/logo.png" alt="Galia Logo" width="120"/>
+</div>
 
-## Get started
+## 📱 About
 
-1. Install dependencies
+Galia is a modern mobile application built with React Native and Expo, featuring a beautiful dark theme UI. The app includes authentication flows, tab navigation, and reusable components for image galleries.
 
-   ```bash
-   npm install
-   ```
+## 🚀 Technologies
 
-2. Start the app
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Expo Router](https://docs.expo.dev/routing/introduction/)
 
-   ```bash
-    npx expo start
-   ```
+## 📚 Libraries
 
-In the output, you'll find options to open the app in a
+- `phosphor-react-native` - Modern icon library
+- `react-native-pager-view` - Native ViewPager component
+- Other Expo managed dependencies
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## ⚙️ Features
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Authentication
+- Login screen with email and password
+- Sign up screen with form validation
+- Social login options (Facebook, Google, Apple, GitHub)
+- Remember me functionality
+- Secure password input
 
-## Get a fresh project
+### Navigation
+- Tab-based navigation
+- Stack navigation for auth flow
+- Protected routes
+- Smooth transitions
 
-When you're ready, run:
+### Components
 
-```bash
-npm run reset-project
+#### SliderPhotos
+A reusable image slider component with the following features:
+- Full-screen modal view
+- Swipeable gallery
+- Touch interaction
+- Dynamic image loading
+- Customizable container styles
+
+```typescript
+// Usage example
+<SliderPhotos 
+  images={[
+    require('./assets/image1.png'),
+    require('./assets/image2.png'),
+  ]}
+  containerStyle={{ height: 300 }}
+/>
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🎨 UI/UX
 
-## Learn more
+- Dark theme with modern aesthetics
+- Consistent color palette:
+  - Background: #181a20
+  - Accent: #1ab65c
+  - Input fields: #1F222A
+- Custom form inputs with icons
+- Responsive layouts
+- Smooth animations
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📂 Project Structure
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```
+galia/
+├── app/
+│   ├── stacks/
+│   │   ├── Login.tsx
+│   │   └── Signup.tsx
+│   ├── tabs/
+│   │   ├── Home.tsx
+│   │   └── Profile.tsx
+│   └── _layout.tsx
+├── components/
+│   └── SliderPhotos.tsx
+├── assets/
+└── package.json
+```
 
-## Join the community
+## 🚀 Getting Started
 
-Join our community of developers creating universal apps.
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/galia.git
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+2. Install dependencies
+```bash
+cd galia
+npm install
+```
+
+3. Start the development server
+```bash
+npx expo start
+```
+
+## 📱 Running on Device
+
+1. Install Expo Go on your device
+2. Scan the QR code from terminal
+3. Or run on simulator/emulator:
+```bash
+# iOS
+npm run ios
+
+# Android
+npm run android
+```
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](link-to-issues).
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+Made with 💚 by [Your Name]
+
+[GitHub](your-github-link) · [LinkedIn](your-linkedin-link) 
