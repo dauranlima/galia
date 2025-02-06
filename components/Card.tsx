@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router'
-import { Bookmark, Star  } from 'phosphor-react-native'
+import { Bookmark, Star, StarHalf  } from 'phosphor-react-native'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 const Card = () => {
 
@@ -11,8 +11,6 @@ const Card = () => {
   }
 
 
-
-
   return (
 
     <TouchableOpacity style={styles.card} onPress={handleDetails}>
@@ -20,12 +18,21 @@ const Card = () => {
       <Image source={require("../assets/1image.png")} style={styles.recommendationsImage} />
       </View>
       <View style={styles.cardContent}>
-        <Text style={styles.cardTitle}>Royale President Donald Trump 5 stars Hotel</Text>
+        <Text style={styles.cardTitle}>Royale President Hotel</Text>
+
 
 
         <Text style={styles.cardAddress}>Rua das Flores, 123</Text>
-        <Star size={16} color="#f6fe00" />
-        <Text style={styles.cartdCity}>(4.8 Reviews)</Text>
+        <View style={styles.cardRating}>
+          <Star size={16} color="#f6fe00" weight='fill' />
+          <Star size={16} color="#f6fe00" weight='fill' />
+          <Star size={16} color="#f6fe00" weight='fill' />
+          <Star size={16} color="#f6fe00" weight='fill' />
+          <StarHalf size={16} color="#f6fe00" weight='fill' />
+          <Text style={styles.cartdCity}>(4.8)</Text>
+        </View>
+        <Text style={styles.cartdCity}>(328 Reviews)</Text>
+
       </View>
       <View style={styles.cardContent_value}>
         <Text style={styles.cardPrice}>R$ 450</Text>
@@ -59,6 +66,13 @@ const styles = StyleSheet.create({
   cardContent: {
     flexDirection: "column",
   },
+  cardRating: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+  },
+
+
 
   cardTitle: {
     width: 175,

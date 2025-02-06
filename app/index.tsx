@@ -11,7 +11,7 @@ export default function Index() {
       if (isLoggedIn) {
         router.replace('/tabs/Home')
       } else {
-        router.replace('/stacks/Signup')
+        router.replace('/stacks/Login')
       }
     }, 1500)
     

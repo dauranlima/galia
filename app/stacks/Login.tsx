@@ -1,83 +1,115 @@
-import { ArrowLeft, EnvelopeSimple, LockKey } from 'phosphor-react-native'
+import { AppleLogo, ArrowLeft, EnvelopeSimple, FacebookLogo, GithubLogo, LockKey } from 'phosphor-react-native'
 import { useState } from 'react'
-import { StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { Link, useRouter } from 'expo-router'
 
 export default function Login() {
-
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [rememberMe, setRememberMe] = useState(false)
-
 
   const handleLogin = () => {
     console.log('Olá, Dauran! - Login realizado com sucesso!')
     router.navigate('/tabs/Home')
   }
 
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
-      <Link href="/stacks/Login" asChild>
-        <TouchableOpacity style={styles.arrowLeft}>
-          <ArrowLeft size={24} color="#fff" />
-        </TouchableOpacity>
-      </Link>
-      <View style={styles.content}>
-        <Text style={styles.title}>Faça Login na {'\n'}Conta</Text>
-        <View style={styles.form}>
-          <View style={styles.inputContainer}>
-            <EnvelopeSimple size={24} color="#757575" />
-            <TextInput
-              style={styles.input}
-              placeholder="Email"
-              placeholderTextColor="#666"
-              value={email}
-              onChangeText={setEmail}
-              autoCapitalize="none"
-              keyboardType="email-address"
-            />
-          </View>
-          <View style={styles.inputContainer}>
-            <LockKey size={24} color="#757575" />
-            <TextInput
-              style={styles.input}
-              placeholder="Password"
-              placeholderTextColor="#666"
-              value={password}
-              onChangeText={setPassword}
-              secureTextEntry
-            />
-          </View>
-          <TouchableOpacity 
-            style={styles.rememberContainer}
-            onPress={() => setRememberMe(!rememberMe)}
-          >
-            <View style={[styles.checkbox, rememberMe && styles.checkboxChecked]} />
-            <Text style={styles.rememberText}>Remember me</Text>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 40 }}
+      >
+        <Link href="/stacks/Login" asChild>
+          <TouchableOpacity style={styles.arrowLeft}>
+            <ArrowLeft size={24} color="#fff" />
           </TouchableOpacity>
-          <View style={styles.forgotPasswordContainer}>
-            <Link href="/stacks/Signup" asChild>
-              <TouchableOpacity>
-                <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
+        </Link>
+
+        <View style={styles.content}>
+          <Text style={styles.title}>Faça Login na {'\n'}Conta</Text>
+          <View style={styles.form}>
+            <View style={styles.inputContainer}>
+              <EnvelopeSimple size={24} color="#757575" />
+              <TextInput
+                style={styles.input}
+                placeholder="Email"
+                placeholderTextColor="#666"
+                value={email}
+                onChangeText={setEmail}
+                autoCapitalize="none"
+                keyboardType="email-address"
+              />
+            </View>
+
+            <View style={styles.inputContainer}>
+              <LockKey size={24} color="#757575" />
+              <TextInput
+                style={styles.input}
+                placeholder="Password"
+                placeholderTextColor="#666"
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry
+              />
+            </View>
+
+            <TouchableOpacity 
+              style={styles.rememberContainer}
+              onPress={() => setRememberMe(!rememberMe)}
+            >
+              <View style={[styles.checkbox, rememberMe && styles.checkboxChecked]} />
+              <Text style={styles.rememberText}>Remember me</Text>
+            </TouchableOpacity>
+
+            <View style={styles.forgotPasswordContainer}>
+              <Link href="/stacks/Signup" asChild>
+                <TouchableOpacity>
+                  <Text style={styles.forgotPassword}>Esqueceu sua senha?</Text>
+                </TouchableOpacity>
+              </Link>
+            </View>
+
+            <TouchableOpacity style={styles.signupButton} onPress={handleLogin}>
+              <Text style={styles.signupButtonText}>Faça Login</Text>
+            </TouchableOpacity>
+
+            <View style={styles.separator}>
+              <View style={styles.separatorLine} />
+              <Text style={styles.orText}>OU CONTINUE COM</Text>
+              <View style={styles.separatorLine} />
+            </View>
+
+            <View style={styles.socialButtons}>
+              <TouchableOpacity style={styles.socialButton}>
+                <FacebookLogo size={34} color="#1877f2" weight='fill' />
               </TouchableOpacity>
-            </Link>
-          </View>
-          <TouchableOpacity style={styles.signupButton} onPress={handleLogin}>
-            <Text style={styles.signupButtonText}>Faça Login</Text>
-          </TouchableOpacity>
-          <View style={styles.footer}>
-            <Text style={styles.footerText}>Não tem uma conta?</Text>
-            <Link href="/stacks/Signup" asChild>
-              <TouchableOpacity>
-                <Text style={styles.signInText}>Crie sua conta</Text>
+              <TouchableOpacity style={styles.socialButton}>
+                <GithubLogo size={24} color="#fff" weight='fill' />
               </TouchableOpacity>
-            </Link>
+              <TouchableOpacity style={styles.socialButton}>
+                <AppleLogo size={24} color="#fff" weight='fill' />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.socialButton}>
+                <Image 
+                  source={require('../../assets/google.png')} 
+                  style={{ width: 24, height: 24 }} 
+                />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.footer}>
+              <Text style={styles.footerText}>Não tem uma conta?</Text>
+              <Link href="/stacks/Signup" asChild>
+                <TouchableOpacity>
+                  <Text style={styles.signInText}>Crie sua conta</Text>
+                </TouchableOpacity>
+              </Link>
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   )
 }
@@ -176,6 +208,17 @@ const styles = StyleSheet.create({
   socialButtonText: {
     color: '#fff',
     fontSize: 20,
+  },
+    separator: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  separatorLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#666',
+    marginHorizontal: 20
   },
   footer: {
     flexDirection: 'row',
