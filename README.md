@@ -2,7 +2,10 @@
 
 <div align="center">
   <img src="./assets/logo.png" alt="Galia Logo" width="120"/>
+  
+
 </div>
+
 
 ## 📱 About
 
